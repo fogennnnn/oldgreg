@@ -1,22 +1,28 @@
 {
-  "name": "OLDGREG",
+  "name": "oldgreg",
   "version": "1.0.0",
-  "description": "The self-healing coding harness. Never stops.",
+  "description": "The self-healing AI coding harness. Free tiers. HEMO auto-provisioning. Zero lock-in.",
   "main": "chode.js",
   "bin": {
-    "OLDGREG": "chode.js",
-    "og": "chode.js"
+    "oldgreg": "chode.js",
+    "og": "chode.js",
+    "chode": "chode.js"
   },
   "scripts": {
     "start": "node chode.js",
-    "test": "node --check chode.js"
+    "test": "npm run test:units",
+    "test:units": "node --check chode.js && node tests/memory-lens.test.js && node tests/retro-revival.test.js && node tests/dream-decoder.test.js",
+    "test:memory": "node memory.js"
   },
   "keywords": [
     "ai",
     "coding",
     "harness",
     "self-healing",
-    "cloudflare"
+    "cloudflare",
+    "hemol",
+    "provider-routing",
+    "multi-provider"
   ],
   "author": "Robert Fogeborg",
   "license": "MIT",
@@ -26,5 +32,15 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "files": [
+    "chode.js",
+    "memory.js",
+    "tests/",
+    "*.md"
+  ],
+  "homepage": "https://github.com/fogennnnn/chode",
+  "bugs": {
+    "url": "https://github.com/fogennnnn/chode/issues"
   }
 }
