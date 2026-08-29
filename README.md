@@ -347,7 +347,7 @@ MIT — Robert Fogeborg 2026
 
 ## Links
 
-- **Repository**: https://github.com/fogennnnn/chode
-- **Issues**: https://github.com/fogennnnn/chode/issues
+- **Repository**: https://github.com/fogennnnn/oldgreg
+- **Issues**: https://github.com/fogennnnn/oldgreg/issues
 - **HEMO Docs**: https://mcp-hemo.oooooooooo.se/llms.txt
 - **Vault Docs**: https://hemo-vault.oooooooooo.se/llms.txt

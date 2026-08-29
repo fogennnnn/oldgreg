@@ -1,17 +1,16 @@
 {
-  "name": "oldgreg",
+  "name": "chode-harness",
   "version": "1.0.0",
   "description": "The self-healing AI coding harness. Free tiers. HEMO auto-provisioning. Zero lock-in.",
-  "main": "chode.js",
+  "main": "oldgreg.js",
   "bin": {
-    "oldgreg": "chode.js",
-    "og": "chode.js",
-    "chode": "chode.js"
+    "oldgreg": "oldgreg.js",
+    "og": "oldgreg.js"
   },
   "scripts": {
-    "start": "node chode.js",
-    "test": "npm run test:units",
-    "test:units": "node --check chode.js && node tests/memory-lens.test.js && node tests/retro-revival.test.js && node tests/dream-decoder.test.js",
+    "start": "node oldgreg.js",
+    "test": "node --check oldgreg.js && npm run test:units",
+    "test:units": "node --check oldgreg.js && node tests/memory-lens.test.js && node tests/retro-revival.test.js && node tests/dream-decoder.test.js",
     "test:memory": "node memory.js"
   },
   "keywords": [
@@ -28,13 +27,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fogennnnn/chode.git"
+    "url": "https://github.com/fogennnnn/oldgreg.git"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "files": [
-    "chode.js",
+    "oldgreg.js",
     "memory.js",
     "tests/",
     "*.md"
