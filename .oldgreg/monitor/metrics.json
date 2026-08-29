@@ -1,0 +1,130 @@
+{
+  "timestamp": "2026-08-29T04:48:23.238Z",
+  "uptime": 780.3777792,
+  "queueSize": 0,
+  "costs": {
+    "day": "2026-08-29",
+    "totalCost": "0.0000",
+    "providers": {
+      "agnes": {
+        "requests": 1,
+        "tokens": 26,
+        "cost": 0.0000052
+      }
+    }
+  },
+  "providers": [
+    {
+      "id": "groq",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "cerebras",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "google",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "mistral",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "openrouter",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 1,
+      "circuitState": "closed",
+      "failures": 1
+    },
+    {
+      "id": "nvidia",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "cloudflare",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "deepseek",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "cohere",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "agnes",
+      "requests": 1,
+      "tokens": 26,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "ollama",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "pollinations",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "anthropic",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    },
+    {
+      "id": "openai",
+      "requests": 0,
+      "tokens": 0,
+      "errors": 0,
+      "circuitState": "closed",
+      "failures": 0
+    }
+  ]
+}

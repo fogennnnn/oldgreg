@@ -1,0 +1,11 @@
+{
+  "total": 0.0000052,
+  "byProvider": {
+    "agnes": {
+      "requests": 1,
+      "tokens": 26,
+      "cost": 0.0000052
+    }
+  },
+  "day": "2026-08-29"
+}

@@ -1,0 +1,260 @@
+{
+  "providers": {
+    "groq": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:02.746Z",
+      "lastStatus": "missing_key",
+      "lastError": "missing_key"
+    },
+    "cerebras": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:02.746Z",
+      "lastStatus": "missing_key",
+      "lastError": "missing_key"
+    },
+    "google": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:02.746Z",
+      "lastStatus": "missing_key",
+      "lastError": "missing_key"
+    },
+    "mistral": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:02.746Z",
+      "lastStatus": "missing_key",
+      "lastError": "missing_key"
+    },
+    "openrouter": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:03.082Z",
+      "lastStatus": "auth_failed",
+      "lastError": "auth_failed"
+    },
+    "nvidia": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:03.082Z",
+      "lastStatus": "missing_key",
+      "lastError": "missing_key"
+    },
+    "cloudflare": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:03.082Z",
+      "lastStatus": "missing_key",
+      "lastError": "missing_key"
+    },
+    "deepseek": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:03.082Z",
+      "lastStatus": "missing_key",
+      "lastError": "missing_key"
+    },
+    "cohere": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:03.083Z",
+      "lastStatus": "missing_key",
+      "lastError": "missing_key"
+    },
+    "agnes": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:03.083Z",
+      "lastStatus": "missing_key",
+      "lastError": "missing_key"
+    },
+    "ollama": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:03.106Z",
+      "lastStatus": "fetch failed",
+      "lastError": "fetch failed"
+    },
+    "pollinations": {
+      "probes": 1,
+      "successes": 1,
+      "totalLatency": 170,
+      "lastOk": "2026-08-29T04:48:03.300Z",
+      "streak": 1,
+      "lastProbe": "2026-08-29T04:48:03.300Z",
+      "lastStatus": "ok",
+      "avgLatency": 170
+    },
+    "anthropic": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:03.508Z",
+      "lastStatus": "auth_failed",
+      "lastError": "auth_failed"
+    },
+    "openai": {
+      "probes": 1,
+      "successes": 0,
+      "totalLatency": 0,
+      "lastOk": null,
+      "streak": 0,
+      "lastProbe": "2026-08-29T04:48:03.508Z",
+      "lastStatus": "missing_key",
+      "lastError": "missing_key"
+    }
+  },
+  "ranked": [
+    {
+      "id": "pollinations",
+      "name": "Pollinations (Bootstrap)",
+      "score": 75,
+      "reliability": 100,
+      "latency": 170,
+      "streak": 1,
+      "category": "bootstrap"
+    },
+    {
+      "id": "anthropic",
+      "name": "Claude (Anthropic)",
+      "score": 45,
+      "reliability": 0,
+      "streak": 0,
+      "category": "paid"
+    },
+    {
+      "id": "google",
+      "name": "Gemini (Google AI Studio)",
+      "score": 43,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_tier"
+    },
+    {
+      "id": "agnes",
+      "name": "Agnes AI (2.5 Flash)",
+      "score": 43,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_tier"
+    },
+    {
+      "id": "openai",
+      "name": "GPT-4o-mini (OpenAI)",
+      "score": 43,
+      "reliability": 0,
+      "streak": 0,
+      "category": "paid"
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "score": 42,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_tier"
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras",
+      "score": 42,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_tier"
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral",
+      "score": 41,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_tier"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "score": 41,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_tier"
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "score": 40,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_tier"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA NIM",
+      "score": 40,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_tier"
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "score": 38,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_tier"
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare Workers AI",
+      "score": 35,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_tier"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama (Local)",
+      "score": 31,
+      "reliability": 0,
+      "streak": 0,
+      "category": "free_local"
+    }
+  ],
+  "updated": "2026-08-29T04:48:02.746Z"
+}

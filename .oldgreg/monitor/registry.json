@@ -1,0 +1,30 @@
+{
+  "endpoints": {
+    "openrouter": {
+      "hash": "12c7e41c",
+      "discoveredAt": "2026-08-29T01:03:45.405Z",
+      "url": "https://openrouter.ai/api/v1/chat/completions"
+    },
+    "anthropic": {
+      "hash": "5e7e610d",
+      "discoveredAt": "2026-08-29T01:03:45.439Z",
+      "url": "https://api.anthropic.com/v1/messages"
+    },
+    "pollinations": {
+      "hash": "2d6fdc5c",
+      "discoveredAt": "2026-08-29T01:03:48.755Z",
+      "url": "https://text.pollinations.ai/openai/v1/chat/completions"
+    },
+    "agnes": {
+      "hash": "453caea5",
+      "discoveredAt": "2026-08-29T04:35:41.467Z",
+      "url": "https://apihub.agnes-ai.com/v1/chat/completions"
+    },
+    "ollama": {
+      "hash": "39f09660",
+      "discoveredAt": "2026-08-29T04:48:03.083Z",
+      "url": "http://localhost:11434/api/chat"
+    }
+  },
+  "updated": null
+}
