@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * ============================================================
- * chode — The Self-Healing Coding Harness
+ * oldgreg — The Self-Healing Coding Harness
  * Free tiers. HEMO auto-provisioning. Zero lock-in.
  *
  * Routes across 8 real free-tier providers with automatic key
@@ -9,21 +9,21 @@
  * retry, checkpoint recovery, and circuit breaker failover.
  *
  * Usage:
- *   node chode.js ai [prompt]             AI call with auto-fallback routing
- *   node chode.js project <spec>          Run multi-step project
- *   node chode.js scan                    Probe all free-tier providers
- *   node chode.js score                   Show live leaderboard
- *   node chode.js status                  Full health dashboard
- *   node chode.js provision               Auto-request free-tier keys via HEMO
- *   node chode.js auth                    Set or rotate API keys
- *   node chode.js models                  List all providers
- *   node chode.js heal                    Force full re-scan
- *   node chode.js monitor                 Background health monitoring
- *   node chode.js session [list|show|reset] Manage sessions
- *   node chode.js new <name>              Scaffold a Cloudflare Worker
- *   node chode.js deps [check|install]    Manage dependencies
- *   node chode.js init                    One-time setup
- *   node chode.js help
+ *   node oldgreg.js ai [prompt]             AI call with auto-fallback routing
+ *   node oldgreg.js project <spec>          Run multi-step project
+ *   node oldgreg.js scan                    Probe all free-tier providers
+ *   node oldgreg.js score                   Show live leaderboard
+ *   node oldgreg.js status                  Full health dashboard
+ *   node oldgreg.js provision               Auto-request free-tier keys via HEMO
+ *   node oldgreg.js auth                    Set or rotate API keys
+ *   node oldgreg.js models                  List all providers
+ *   node oldgreg.js heal                    Force full re-scan
+ *   node oldgreg.js monitor                 Background health monitoring
+ *   node oldgreg.js session [list|show|reset] Manage sessions
+ *   node oldgreg.js new <name>              Scaffold a Cloudflare Worker
+ *   node oldgreg.js deps [check|install]    Manage dependencies
+ *   node oldgreg.js init                    One-time setup
+ *   node oldgreg.js help
  * ============================================================
  */
 
@@ -37,7 +37,7 @@ const os = require('os');
 // ─── Paths ─────────────────────────────────────────────────────────────────────
 
 const ROOT = process.cwd();
-const CONFIG_DIR = path.join(ROOT, '.chode');
+const CONFIG_DIR = path.join(ROOT, '.oldgreg');
 const CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');
 const SESSION_DIR = path.join(CONFIG_DIR, 'sessions');
 const MONITOR_DIR = path.join(CONFIG_DIR, 'monitor');
@@ -143,7 +143,7 @@ const PROVIDERS = {
     endpoints: [{
       type: 'chat',
       url: 'https://openrouter.ai/api/v1/chat/completions',
-      headers: k => ({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + k, 'HTTP-Referer': 'https://chode.oooooooooo.se', 'X-Title': 'chode' }),
+      headers: k => ({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + k, 'HTTP-Referer': 'https://oldgreg.oooooooooo.se', 'X-Title': 'oldgreg' }),
       body: (k, m) => JSON.stringify({ model: 'free/qwen-2.5-7b-instruct', messages: m, max_tokens: 4096 }),
       parse: d => d.choices?.[0]?.message?.content
     }]
@@ -870,8 +870,8 @@ async function callWithBestProvider(prompt, sessionId, forceProvider) {
           info('    ' + cp.name.padEnd(20) + ' → ' + cp.signupUrl);
         }
       }
-      info('\n  Then: chode auth <provider> [your-key]\n');
-      info('  Or run: chode provision\n');
+      info('\n  Then: oldgreg auth <provider> [your-key]\n');
+      info('  Or run: oldgreg provision\n');
       return null;
     }
   }
@@ -940,11 +940,11 @@ function cmdModels() {
     say('  ' + icon + ' ' + pid.padEnd(14), hasKey?'green':'white');
     info('  ' + p.name.padEnd(28) + tier, 'dim');
   }
-  info('\n  Quick start:\n    chode scan        Discover working providers\n    chode ai "hello"  Test auto-routing\n    chode provision   Auto-request free-tier keys\n');
+  info('\n  Quick start:\n    oldgreg scan        Discover working providers\n    oldgreg ai "hello"  Test auto-routing\n    oldgreg provision   Auto-request free-tier keys\n');
 }
 
 async function cmdScan() {
-  info('\n  chode scan — Full free-tier health probe\n');
+  info('\n  oldgreg scan — Full free-tier health probe\n');
   info('  Testing all ' + Object.keys(PROVIDERS).length + ' providers...\n');
   var scored = await runFullScan(true);
   showQuickScore();
@@ -953,8 +953,8 @@ async function cmdScan() {
 
 function cmdScore() {
   var lb = loadLeaderboard();
-  if (!lb.ranked||lb.ranked.length===0) { warn('No scan data. Run `chode scan` first.'); return; }
-  info('\n  chode score — Live Provider Leaderboard\n  Updated: '+(lb.updated?new Date(lb.updated).toLocaleString():'never')+'\n');
+  if (!lb.ranked||lb.ranked.length===0) { warn('No scan data. Run `oldgreg scan` first.'); return; }
+  info('\n  oldgreg score — Live Provider Leaderboard\n  Updated: '+(lb.updated?new Date(lb.updated).toLocaleString():'never')+'\n');
   info('  Rank  Provider'.padEnd(30)+'Score  Rel      Latency  Tier\n');
   info('  '+'─'.repeat(72)+'\n');
   for (var i=0;i<lb.ranked.length;i++) {
@@ -970,7 +970,7 @@ function cmdScore() {
 function cmdStatus() {
   var lb = loadLeaderboard();
   var usage = loadUsage();
-  info('\n  ═══ chode Status ═══\n');
+  info('\n  ═══ oldgreg Status ═══\n');
   info('  Providers:\n');
   for (var pid in PROVIDERS) {
     var p = PROVIDERS[pid];
@@ -996,7 +996,7 @@ function cmdStatus() {
     }
   }
   try { require('child_process').execSync('curl -s http://localhost:11434/api/tags',{encoding:'utf8',stdio:'pipe'}); info('\n  Ollama: running ✓\n'); } catch(e) { info('\n  Ollama: not running (install: winget install Ollama.Ollama)\n'); }
-  info('  Commands: chode ai "prompt" | chode provision | chode status | chode scan\n');
+  info('  Commands: oldgreg ai "prompt" | oldgreg provision | oldgreg status | oldgreg scan\n');
 }
 
 async function cmdAI(rawArgs) {
@@ -1020,7 +1020,7 @@ async function cmdAI(rawArgs) {
   }
 
   if (!sessionId && !prompt) {
-    info('\n  chode AI — Self-Healing Session\n');
+    info('\n  oldgreg AI — Self-Healing Session\n');
     showQuickScore();
     var lastSession = loadSession(null);
     if (lastSession.messages.length > 0) info('  Resuming session with ' + lastSession.messages.length + ' messages\n');
@@ -1034,7 +1034,7 @@ async function cmdAI(rawArgs) {
         var lb = loadLeaderboard();
         var fastest = lb.ranked && lb.ranked.length > 0 ? lb.ranked[0].id : null;
         if (fastest) info('\n  [AFK — switching to: ' + (PROVIDERS[fastest]?.name||fastest) + ']\n');
-        else info('\n  [AFK — run `chode scan` to discover providers]\n');
+        else info('\n  [AFK — run `oldgreg scan` to discover providers]\n');
         askNext(fastProvider);
       }, AFK_TIMEOUT*1000);
       process.stdin.once('data', function(chunk) {
@@ -1086,7 +1086,7 @@ function clearCheckpoint() {
 }
 
 async function cmdProject(spec) {
-  info('\n  chode project — Multi-provider orchestration\n');
+  info('\n  oldgreg project — Multi-provider orchestration\n');
 
   var steps;
   try { steps = JSON.parse(spec); }
@@ -1152,7 +1152,7 @@ async function cmdProject(spec) {
   saveWorkQueue(q);
 
   info('\n  Complete: ' + results.filter(function(r){return r.result;}).length + '/' + results.length + ' steps\n');
-  info('  Resume: chode project --resume ' + qid + '\n');
+  info('  Resume: oldgreg project --resume ' + qid + '\n');
   return results;
 }
 
@@ -1164,7 +1164,7 @@ async function cmdProjectResume(qid) {
 }
 
 async function cmdHeal() {
-  info('\n  chode heal — Force provider diagnostics\n');
+  info('\n  oldgreg heal — Force provider diagnostics\n');
   // Reset all circuit breakers
   circuitBreakers = {};
   rateLimits = {};
@@ -1184,7 +1184,7 @@ function cmdSession(action) {
   } catch(e) {}
   if (action === 'list' || !action) {
     info('\n  Sessions (' + sessions.length + '):\n');
-    if (sessions.length === 0) { info('  No sessions yet. Start one with: chode ai\n'); return; }
+    if (sessions.length === 0) { info('  No sessions yet. Start one with: oldgreg ai\n'); return; }
     for (var j=0;j<sessions.length;j++) {
       var s=sessions[j];
       info('  ' + s.id.padEnd(16) + ' msgs:' + String(s.messages?s.messages.length:0).padEnd(4) + ' provider:' + (s.lastProvider||'none').padEnd(12) + ' created:' + new Date(s.createdAt).toLocaleString() + '\n','dim');
@@ -1209,7 +1209,7 @@ function cmdSession(action) {
 }
 
 async function cmdAuth() {
-  info('\n  chode auth — Manage API keys\n');
+  info('\n  oldgreg auth — Manage API keys\n');
   var providers = loadConfig().providers || {};
   if (Object.keys(providers).length === 0) {
     info('  No keys configured.\n');
@@ -1220,8 +1220,8 @@ async function cmdAuth() {
         info('    ' + p.name.padEnd(30) + p.freeTier + '\n    ' + '    ' + p.signupUrl + '\n','dim');
       }
     }
-    info('\n  Set a key: chode auth groq [your-key-here]\n');
-    info('  Or auto-provision: chode provision\n');
+    info('\n  Set a key: oldgreg auth groq [your-key-here]\n');
+    info('  Or auto-provision: oldgreg provision\n');
     return;
   }
   info('  Configured keys:\n');
@@ -1232,8 +1232,8 @@ async function cmdAuth() {
     say('  ' + icon + ' ' + pid + '\n', p.key ? 'green' : 'white');
     info('    Key: ' + masked + '\n','dim');
   }
-  info('\n  Update: chode auth <provider> <new-key>\n');
-  info('  Remove: chode auth <provider> --remove\n');
+  info('\n  Update: oldgreg auth <provider> <new-key>\n');
+  info('  Remove: oldgreg auth <provider> --remove\n');
 }
 
 // ─── Key Validation ─────────────────────────────────────────────────────────────
@@ -1280,7 +1280,7 @@ function getErrorMessage(errorCode) {
 }
 
 async function cmdProvision(providerArg) {
-  info('\n  chode provision — Auto-request free-tier API keys\n');
+  info('\n  oldgreg provision — Auto-request free-tier API keys\n');
   // Get all free-tier providers that need keys
   var providers = [];
   var existing = loadConfig().providers || {};
@@ -1299,7 +1299,7 @@ async function cmdProvision(providerArg) {
 
   info('  Requesting keys for: ' + providers.map(function(p){return PROVIDERS[p]?.name||p;}).join(', ') + '\n');
   info('  Note: HEMO mail may not be available from all environments.\n');
-  info('  You will need to sign up at each provider and run: chode auth <provider> <key>\n\n');
+  info('  You will need to sign up at each provider and run: oldgreg auth <provider> <key>\n\n');
 
   var sent = 0;
   for (var i=0;i<providers.length;i++) {
@@ -1313,7 +1313,7 @@ async function cmdProvision(providerArg) {
 
   info('  To activate, run for each provider:\n');
   for (var j=0;j<providers.length;j++) {
-    info('    chode auth ' + providers[j] + ' [your-api-key]\n');
+    info('    oldgreg auth ' + providers[j] + ' [your-api-key]\n');
   }
   info('  Or use environment variables:\n');
   for (var k=0;k<providers.length;k++) {
@@ -1355,7 +1355,7 @@ async function provisionViaHelio(providerId) {
               'Endpoint: ' + (typeof config.endpoints[0].url === 'function' ? 'see docs' : config.endpoints[0].url) + '\n' +
               'Free tier: ' + (config.freeTier||'check docs') + '\n' +
               'Signup: ' + (config.signupUrl||'') + '\n\n' +
-              'Auto-provisioned by chode on ' + new Date().toISOString()
+              'Auto-provisioned by oldgreg on ' + new Date().toISOString()
       }),
       signal: AbortSignal.timeout(10000)
     });
@@ -1365,7 +1365,7 @@ async function provisionViaHelio(providerId) {
     warn('HEMO mail unavailable (' + e.message + '). Use manual signup:\n');
     var cfg = PROVIDERS[providerId];
     if (cfg && cfg.signupUrl) info('    ' + cfg.name + ' → ' + cfg.signupUrl + '\n');
-    info('    Then run: chode auth ' + providerId + ' [your-key]\n');
+    info('    Then run: oldgreg auth ' + providerId + ' [your-key]\n');
     return null;
   }
 }
@@ -1380,7 +1380,7 @@ function cmdNew(name, flags) {
     '<html lang="en"><head>',
     '  <meta charset="utf-8">',
     '  <meta name="viewport" content="width=device-width,initial-scale=1">',
-    '  <title>'+slug+' — chode</title>',
+    '  <title>'+slug+' — oldgreg</title>',
     '  <meta name="description" content="'+slug+' — self-healing Cloudflare Worker">',
     '  <style>',
     '    :root{--g:#22dd55;--bg:#0a0a0a;--text:#dff0e2;--muted:#7fa88a;--fm:"IBM Plex Mono",monospace;}',
@@ -1394,8 +1394,8 @@ function cmdNew(name, flags) {
     '</head><body>',
     '<div class="container">',
     '  <h1>'+slug+'</h1>',
-    '  <p>Scaffolded by chode — self-healing AI harness</p>',
-    '  <div class="badge">Powered by chode · '+new Date().getFullYear()+'</div>',
+    '  <p>Scaffolded by oldgreg — self-healing AI harness</p>',
+    '  <div class="badge">Powered by oldgreg · '+new Date().getFullYear()+'</div>',
     '</div></body></html>'
   ].join('\n');
   var escaped = htmlDoc.replace(/\\/g,'\\\\').replace(/`/g,'\\`').replace(/\$/g,'\\$');
@@ -1422,7 +1422,7 @@ function cmdNew(name, flags) {
 function cmdNewSkill(slug) {
   var md = ['---','name: '+slug,'type: technique','description: >','  '+slug.replace(/-/g,' ')+' — HEMO skill.','---','',
     '# '+slug,'',slug.replace(/-/g,' ')+' is a HEMO economy skill.',
-    '','## Usage','','```','chode skills install '+slug,'```','',
+    '','## Usage','','```','oldgreg skills install '+slug,'```','',
     '## Conventions','- Follow the HEMO doctrine','- Rate-limit aware'].join('\n');
   write('skills/'+slug+'/SKILL.md', md);
   ok('Scaffolded skill: '+slug);
@@ -1437,7 +1437,7 @@ function checkAndInstallDeps(dir) {
   for (var name in GLOBAL_DEPS) {
     var dep = GLOBAL_DEPS[name];
     if (!dep.check && dep.cmd) {
-      try { execSync(dep.cmd, {stdio:'pipe'}); } catch(e) { if (dep.required) fail('Missing: ' + dep.name + ' — run `chode deps install`'); }
+      try { execSync(dep.cmd, {stdio:'pipe'}); } catch(e) { if (dep.required) fail('Missing: ' + dep.name + ' — run `oldgreg deps install`'); }
     }
   }
 }
@@ -1457,23 +1457,23 @@ async function cmdQuickKey(providerId) {
   info('  Free tier: ' + (config.freeTier||'Check docs') + '\n');
   info('  Signup: ' + (config.signupUrl||'N/A') + '\n');
   info('  Command to save key:\n');
-  info('    chode auth ' + providerId + ' [your-api-key]\n\n');
+  info('    oldgreg auth ' + providerId + ' [your-api-key]\n\n');
   info('  Or set environment variable:\n');
   info('    export ' + (config.requiresKey||providerId.toUpperCase() + '_API_KEY') + '=[your-key]\n');
 }
 
 async function cmdUpdate() {
-  info('\n  chode update — Checking for updates...\n');
+  info('\n  oldgreg update — Checking for updates...\n');
   try {
     var latest = JSON.parse(execSync('npm view OLDGREG version',{encoding:'utf8'}).trim());
     var current = JSON.parse(fs.readFileSync(path.join(ROOT,'package.json'),'utf8')).version||'0.0.0';
-    if (compareVer(current, latest) >= 0) { ok('chode is up to date (' + current + ')'); }
+    if (compareVer(current, latest) >= 0) { ok('oldgreg is up to date (' + current + ')'); }
     else { warn('Update available: ' + current + ' → ' + latest); info('  Run: npm update -g OLDGREG\n'); }
   } catch(e) { warn('Update check failed: ' + e.message); }
 }
 
 function cmdInit() {
-  info('\n  chode init — One-time setup\n');
+  info('\n  oldgreg init — One-time setup\n');
   fs.mkdirSync(CONFIG_DIR, { recursive: true });
   fs.mkdirSync(SESSION_DIR, { recursive: true });
   fs.mkdirSync(MONITOR_DIR, { recursive: true });
@@ -1488,10 +1488,10 @@ function cmdInit() {
   } else { nextStep(); }
   function nextStep() {
     info('\n  Setup complete. Next steps:\n');
-    info('    chode scan          Discover working free-tier providers\n');
-    info('    chode provision     Auto-request free API keys via HEMO mail\n');
-    info('    chode ai            Start AI session with auto-routing\n');
-    info('    chode status        Full health dashboard\n');
+    info('    oldgreg scan          Discover working free-tier providers\n');
+    info('    oldgreg provision     Auto-request free API keys via HEMO mail\n');
+    info('    oldgreg ai            Start AI session with auto-routing\n');
+    info('    oldgreg status        Full health dashboard\n');
   }
 }
 
@@ -1499,7 +1499,7 @@ async function createHeliosAgent() {
   var existing = loadHeliosToken();
   if (existing) return existing;
   info('  Creating HEMO agent identity via HELIOS...');
-  var username = 'chode-' + Date.now().toString(36).slice(-6);
+  var username = 'oldgreg-' + Date.now().toString(36).slice(-6);
   try {
     var r = await fetch('https://ai.oooooooooo.se/api/v1/accounts', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -1517,14 +1517,14 @@ function saveHeliosToken(token) { var cfg = loadConfig(); cfg.heliosToken = toke
 
 function showQuickScore() {
   var lb = loadLeaderboard();
-  if (!lb.ranked||lb.ranked.length===0) { info('  ○ No scan data yet. Run `chode scan`.'); return; }
+  if (!lb.ranked||lb.ranked.length===0) { info('  ○ No scan data yet. Run `oldgreg scan`.'); return; }
   var top = lb.ranked[0];
   var icon = top.score >= 70 ? '✓' : (top.score >= 40 ? '○' : 'x');
   info('  ' + icon + ' Top: ' + top.name + ' (score ' + top.score + ', ' + top.reliability + '% reliable)\n');
 }
 
 async function cmdMonitor() {
-  info('\n  chode monitor — Background health monitor\n');
+  info('\n  oldgreg monitor — Background health monitor\n');
   info('  Starting monitor (Ctrl+C to stop)...\n');
   startHealthMonitor();
   
@@ -1535,8 +1535,8 @@ async function cmdMonitor() {
     process.exit(0);
   });
   
-  info('  Monitor running. Metrics: .chode/monitor/metrics.json\n');
-  info('  Commands: chode costs | chode metrics | chode queue\n');
+  info('  Monitor running. Metrics: .oldgreg/monitor/metrics.json\n');
+  info('  Commands: oldgreg costs | oldgreg metrics | oldgreg queue\n');
   
   // Keep alive
   await new Promise(function() {});
@@ -1569,7 +1569,7 @@ async function cmdMetrics() {
     var icon = p.circuitState === 'open' ? '✗' : (p.errors > 0 ? '○' : '✓');
     info('    ' + icon + ' ' + p.id.padEnd(15) + p.requests + 'req  ' + p.tokens + 'tok  ' + p.errors + 'err  [' + p.circuitState + ']\n');
   }
-  info('\n  Full metrics: .chode/monitor/metrics.json\n');
+  info('\n  Full metrics: .oldgreg/monitor/metrics.json\n');
 }
 
 async function cmdQueue() {
@@ -1589,7 +1589,7 @@ async function cmdQueue() {
 
 function cmdDeps(action, projectArg) {
   action = action || 'check';
-  info('\n  chode deps — ' + action + '\n');
+  info('\n  oldgreg deps — ' + action + '\n');
   var missing = [];
   for (var name in GLOBAL_DEPS) {
     var dep = GLOBAL_DEPS[name];
@@ -1606,47 +1606,47 @@ function cmdDeps(action, projectArg) {
     missing.forEach(function(n) { info('  Installing ' + GLOBAL_DEPS[n].name + '...'); try { run('npm install -g ' + GLOBAL_DEPS[n].npm); ok(GLOBAL_DEPS[n].name + ' installed'); } catch(e) { warn(e.message.split('\n')[0]); } });
   }
   if (missing.length === 0) ok('All dependencies healthy\n');
-  else info('\n  Commands: chode deps install | update\n');
+  else info('\n  Commands: oldgreg deps install | update\n');
 }
 
 function cmdHelp() {
   info(`
-  chode — The Self-Healing Coding Harness
+  oldgreg — The Self-Healing Coding Harness
   Free tiers. HEMO auto-provisioning. Zero lock-in.
 
   AI (routes to best free-tier provider, NEVER STOPS):
-    chode ai "prompt"             One-shot with parallel fallback
-    chode ai --resume             Resume interrupted session
-    chode ai --force <provider>   Force specific provider
-    chode project "<spec>"        Multi-step project orchestration
-    chode project --resume <id>   Resume interrupted project
+    oldgreg ai "prompt"             One-shot with parallel fallback
+    oldgreg ai --resume             Resume interrupted session
+    oldgreg ai --force <provider>   Force specific provider
+    oldgreg project "<spec>"        Multi-step project orchestration
+    oldgreg project --resume <id>   Resume interrupted project
 
   Health & Discovery:
-    chode status                  Full health dashboard
-    chode scan                    Probe ALL providers, build leaderboard
-    chode score                   Show current rankings
-    chode heal                    Force full re-scan (clear circuit breakers)
+    oldgreg status                  Full health dashboard
+    oldgreg scan                    Probe ALL providers, build leaderboard
+    oldgreg score                   Show current rankings
+    oldgreg heal                    Force full re-scan (clear circuit breakers)
 
   Keys & Provisioning:
-    chode auth                    View/set API keys
-    chode provision               Auto-request free-tier keys via HEMO mail
-    chode quickkey <provider>     Show signup link and instructions
-    chode models                  List all registered providers
+    oldgreg auth                    View/set API keys
+    oldgreg provision               Auto-request free-tier keys via HEMO mail
+    oldgreg quickkey <provider>     Show signup link and instructions
+    oldgreg models                  List all registered providers
 
   Project Management:
-    chode new <name>              Scaffold a Cloudflare Worker
-    chode new <name> --skill      Scaffold a HEMO skill
-    chode deps [check|install]    Dependency management
-    chode session [list|show|reset] Manage sessions
-    chode agents [list|add|run]   Spawn subagents on remote/local machines
+    oldgreg new <name>              Scaffold a Cloudflare Worker
+    oldgreg new <name> --skill      Scaffold a HEMO skill
+    oldgreg deps [check|install]    Dependency management
+    oldgreg session [list|show|reset] Manage sessions
+    oldgreg agents [list|add|run]   Spawn subagents on remote/local machines
 
   Other:
-    chode monitor                 Background health monitor (every 30s)
-    chode costs                   Show cost tracking report
-    chode metrics                 Export system metrics
-    chode queue                   Show request queue status
-    chode update                  Check for chode updates
-    chode init                    One-time setup
+    oldgreg monitor                 Background health monitor (every 30s)
+    oldgreg costs                   Show cost tracking report
+    oldgreg metrics                 Export system metrics
+    oldgreg queue                   Show request queue status
+    oldgreg update                  Check for oldgreg updates
+    oldgreg init                    One-time setup
   `);
 }
 
@@ -1682,7 +1682,7 @@ var dispatch = {
 };
 
 if(dispatch[cmd]){dispatch[cmd]();}
-else if(cmd){fail('Unknown command: '+cmd);info('  Run `chode help` for usage.');process.exit(1);}
+else if(cmd){fail('Unknown command: '+cmd);info('  Run `oldgreg help` for usage.');process.exit(1);}
 else{(async function(){
   // Startup: greet, then check for keys
   console.log('\n  I\'m OLDGREG\n');
@@ -1717,7 +1717,7 @@ else{(async function(){
             ok('Key saved! Starting AI session...\n');
             await cmdAI([]);
           } else {
-            fail('No key provided. Run `chode auth groq [key]` to set it.\n');
+            fail('No key provided. Run `oldgreg auth groq [key]` to set it.\n');
             process.exit(0);
           }
         });
@@ -1734,7 +1734,7 @@ else{(async function(){
             ok('Key saved! Starting AI session...\n');
             await cmdAI([]);
           } else {
-            fail('No key provided. Run `chode auth google [key]` to set it.\n');
+            fail('No key provided. Run `oldgreg auth google [key]` to set it.\n');
             process.exit(0);
           }
         });
@@ -1751,24 +1751,24 @@ else{(async function(){
             ok('Key saved! Starting AI session...\n');
             await cmdAI([]);
           } else {
-            fail('No key provided. Run `chode auth deepseek [key]` to set it.\n');
+            fail('No key provided. Run `oldgreg auth deepseek [key]` to set it.\n');
             process.exit(0);
           }
         });
       } else if (choice === '4') {
         info('  Using bootstrap fallback (Pollinations). It works now but is rate-limited.\n');
-        info('  For better results, run: chode provision\n\n');
+        info('  For better results, run: oldgreg provision\n\n');
         await cmdAI([]);
       } else if (choice === '5') {
         info('  Starting without keys. Some providers won\'t work.\n');
-        info('  To fix: chode auth groq [your-key]\n\n');
+        info('  To fix: oldgreg auth groq [your-key]\n\n');
         await cmdAI([]);
       }
     });
   } else {
     await cmdAI([]);
   }
-  info('\n  Monitor running. Commands: chode metrics | chode costs | chode queue\n');
+  info('\n  Monitor running. Commands: oldgreg metrics | oldgreg costs | oldgreg queue\n');
 })();}
 
 function hasAnyProviderKey() {
@@ -1911,7 +1911,7 @@ async function cmdAgents(subcmd) {
     info('\n  Registered Agents:\n');
     if (agents.agents.length === 0) {
       info('  No agents registered.\n');
-      info('  Add one: chode agents add <id> --type local --command node\n');
+      info('  Add one: oldgreg agents add <id> --type local --command node\n');
       return;
     }
     for (var i = 0; i < agents.agents.length; i++) {
@@ -1921,7 +1921,7 @@ async function cmdAgents(subcmd) {
       say('  ' + icon + ' ' + a.id.padEnd(12), a.enabled !== false ? 'green' : 'white');
       info('  [' + type + '] ' + (a.host || 'localhost') + (a.command ? ' → ' + a.command : ''), 'dim');
     }
-    info('\n  Commands: chode agents add | remove | run | status\n');
+    info('\n  Commands: oldgreg agents add | remove | run | status\n');
   }
   else if (subcmd === 'add') {
     var id = args[2]; // 'linux-server' is at args[2] since args[0]='agents', args[1]='add'
@@ -1958,13 +1958,13 @@ async function cmdAgents(subcmd) {
   else if (subcmd === 'run') {
     var agentId = args[2];
     var taskText = args.slice(3).join(' ');
-    if (!taskText) { fail('Usage: chode agents run <agent-id> "task description"'); return; }
+    if (!taskText) { fail('Usage: oldgreg agents run <agent-id> "task description"'); return; }
     
     info('\n  Dispatching task to ' + agentId + '...\n');
     try {
       var result = spawnAgent(agentId, taskText);
       ok('Task dispatched: ' + result.id);
-      info('  Status: chode agents status ' + result.id + '\n');
+      info('  Status: oldgreg agents status ' + result.id + '\n');
     } catch(e) {
       fail(e.message);
     }

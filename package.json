@@ -41,5 +41,8 @@
   "homepage": "https://github.com/fogennnnn/oldgreg",
   "bugs": {
     "url": "https://github.com/fogennnnn/oldgreg/issues"
+  },
+  "dependencies": {
+    "oldgreg": "1.0.0"
   }
 }
