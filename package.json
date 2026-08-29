@@ -1,6 +1,6 @@
 {
   "name": "oldgreg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The self-healing AI coding harness. Free tiers. HEMO auto-provisioning. Zero lock-in.",
   "main": "oldgreg.js",
   "bin": {
@@ -38,11 +38,8 @@
     "tests/",
     "*.md"
   ],
-  "homepage": "https://github.com/fogennnnn/chode",
+  "homepage": "https://github.com/fogennnnn/oldgreg",
   "bugs": {
-    "url": "https://github.com/fogennnnn/chode/issues"
-  },
-  "dependencies": {
-    "oldgreg": "file:oldgreg-1.0.0.tgz"
+    "url": "https://github.com/fogennnnn/oldgreg/issues"
   }
 }
