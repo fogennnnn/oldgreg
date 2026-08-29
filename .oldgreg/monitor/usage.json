@@ -15,9 +15,9 @@
     },
     "pollinations": {
       "requests": 1,
-      "tokens": 17,
+      "tokens": 9,
       "latencies": [
-        127
+        145
       ],
       "errors": 0
     }
