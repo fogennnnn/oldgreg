@@ -1,142 +1,142 @@
 {
   "providers": {
     "groq": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.472Z",
+      "lastProbe": "2026-08-29T04:49:49.215Z",
       "lastStatus": "missing_key",
       "lastError": "missing_key"
     },
     "cerebras": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.472Z",
+      "lastProbe": "2026-08-29T04:49:49.215Z",
       "lastStatus": "missing_key",
       "lastError": "missing_key"
     },
     "google": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.472Z",
+      "lastProbe": "2026-08-29T04:49:49.215Z",
       "lastStatus": "missing_key",
       "lastError": "missing_key"
     },
     "mistral": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.472Z",
+      "lastProbe": "2026-08-29T04:49:49.215Z",
       "lastStatus": "missing_key",
       "lastError": "missing_key"
     },
     "openrouter": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.694Z",
+      "lastProbe": "2026-08-29T04:49:49.370Z",
       "lastStatus": "auth_failed",
       "lastError": "auth_failed"
     },
     "nvidia": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.694Z",
+      "lastProbe": "2026-08-29T04:49:49.370Z",
       "lastStatus": "missing_key",
       "lastError": "missing_key"
     },
     "cloudflare": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.694Z",
+      "lastProbe": "2026-08-29T04:49:49.370Z",
       "lastStatus": "missing_key",
       "lastError": "missing_key"
     },
     "deepseek": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.694Z",
+      "lastProbe": "2026-08-29T04:49:49.370Z",
       "lastStatus": "missing_key",
       "lastError": "missing_key"
     },
     "cohere": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.694Z",
+      "lastProbe": "2026-08-29T04:49:49.370Z",
       "lastStatus": "missing_key",
       "lastError": "missing_key"
     },
     "agnes": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.694Z",
+      "lastProbe": "2026-08-29T04:49:49.371Z",
       "lastStatus": "missing_key",
       "lastError": "missing_key"
     },
     "ollama": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:02.731Z",
+      "lastProbe": "2026-08-29T04:49:49.389Z",
       "lastStatus": "fetch failed",
       "lastError": "fetch failed"
     },
     "pollinations": {
-      "probes": 2,
-      "successes": 2,
-      "totalLatency": 298,
-      "lastOk": "2026-08-29T04:49:02.891Z",
-      "streak": 2,
-      "lastProbe": "2026-08-29T04:49:02.891Z",
+      "probes": 3,
+      "successes": 3,
+      "totalLatency": 449,
+      "lastOk": "2026-08-29T04:49:49.555Z",
+      "streak": 3,
+      "lastProbe": "2026-08-29T04:49:49.555Z",
       "lastStatus": "ok",
-      "avgLatency": 149
+      "avgLatency": 149.66666666666666
     },
     "anthropic": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:03.080Z",
+      "lastProbe": "2026-08-29T04:49:49.740Z",
       "lastStatus": "auth_failed",
       "lastError": "auth_failed"
     },
     "openai": {
-      "probes": 2,
+      "probes": 3,
       "successes": 0,
       "totalLatency": 0,
       "lastOk": null,
       "streak": 0,
-      "lastProbe": "2026-08-29T04:49:03.080Z",
+      "lastProbe": "2026-08-29T04:49:49.740Z",
       "lastStatus": "missing_key",
       "lastError": "missing_key"
     }
@@ -147,8 +147,8 @@
       "name": "Pollinations (Bootstrap)",
       "score": 75,
       "reliability": 100,
-      "latency": 149,
-      "streak": 2,
+      "latency": 149.66666666666666,
+      "streak": 3,
       "category": "bootstrap"
     },
     {
@@ -256,5 +256,5 @@
       "category": "free_local"
     }
   ],
-  "updated": "2026-08-29T04:49:02.460Z"
+  "updated": "2026-08-29T04:49:49.214Z"
 }
