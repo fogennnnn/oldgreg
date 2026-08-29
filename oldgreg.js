@@ -1645,6 +1645,7 @@ function cmdHelp() {
     oldgreg costs                   Show cost tracking report
     oldgreg metrics                 Export system metrics
     oldgreg queue                   Show request queue status
+    oldgreg nosignups               No-signup AI tools & prompt engineering
     oldgreg update                  Check for oldgreg updates
     oldgreg init                    One-time setup
   `);
@@ -1679,6 +1680,7 @@ var dispatch = {
   costs:      function(){(async function(){await cmdCosts();})();},
   metrics:    function(){(async function(){await cmdMetrics();})();},
   queue:      function(){(async function(){await cmdQueue();})();},
+  nosignups:  function(){const ns=require('./nosignups.js');ns.cmdNoSignups(args[1]);},
 };
 
 if(dispatch[cmd]){dispatch[cmd]();}

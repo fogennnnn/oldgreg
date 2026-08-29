@@ -12,6 +12,14 @@
       "tokens": 0,
       "latencies": [],
       "errors": 1
+    },
+    "pollinations": {
+      "requests": 1,
+      "tokens": 17,
+      "latencies": [
+        115
+      ],
+      "errors": 0
     }
   }
 }

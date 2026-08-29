@@ -1,6 +1,6 @@
 {
   "name": "oldgreg",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The self-healing AI coding harness. Free tiers. HEMO auto-provisioning. Zero lock-in.",
   "main": "oldgreg.js",
   "bin": {

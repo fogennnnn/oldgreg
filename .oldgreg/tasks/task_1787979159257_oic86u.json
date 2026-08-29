@@ -1,0 +1,15 @@
+{
+  "id": "task_1787979159257_oic86u",
+  "agentId": "test-agent",
+  "task": "echo hello",
+  "status": "failed",
+  "created": "2026-08-29T04:52:39.257Z",
+  "result": {
+    "taskId": "task_1787979159257_oic86u",
+    "exitCode": 1,
+    "output": "",
+    "error": "node:internal/modules/cjs/loader:1520\r\n  throw err;\r\n  ^\r\n\r\nError: Cannot find module 'C:\\Users\\fogen\\chode\\task_1787979159257_oic86u'\r\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)\r\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)\r\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)\r\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)\r\n    at Module._load (node:internal/modules/cjs/loader:1294:5)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  code: 'MODULE_NOT_FOUND',\r\n  requireStack: []\r\n}\r\n\r\nNode.js v24.19.0\r\n",
+    "completed": "2026-08-29T04:52:39.563Z"
+  },
+  "error": null
+}
