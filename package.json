@@ -41,5 +41,8 @@
   "homepage": "https://github.com/fogennnnn/chode",
   "bugs": {
     "url": "https://github.com/fogennnnn/chode/issues"
+  },
+  "dependencies": {
+    "oldgreg": "file:oldgreg-1.0.0.tgz"
   }
 }
